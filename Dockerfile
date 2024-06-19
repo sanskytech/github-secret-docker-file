@@ -19,12 +19,6 @@ RUN npm ci
 # Copy all other project files to working directory
 COPY . .
 
-
-
-
-# secrets 
-# ARG NPM_TOKEN
-# ADD .env.production /app/.env.production
 # Set the environment variable from the secret file
 
 RUN  --mount=type=secret,id=NEXT_PUBLIC_MY_SECRET   \
@@ -53,6 +47,7 @@ USER nextuser
 # expose 3020 on container
 EXPOSE 3020
 
+ENV NEXT_PRIVATE_STANDALONE true
 # set app host ,port and node env 
 ENV HOST=0.0.0.0 PORT=3020 NODE_ENV=production
 # start the app with dumb init to spawn the Node.js runtime process
