@@ -17,10 +17,6 @@ RUN npm ci
 # Copy all other project files to working directory
 COPY . .
 
-# Set the environment variable from the secret file
-
-RUN  --mount=type=secret,id=NEXT_PUBLIC_MY_SECRET   \
-sed -i "s~NEXT_PUBLIC_MY_SECRET=~NEXT_PUBLIC_MY_SECRET=$(cat /run/secrets/NEXT_PUBLIC_MY_SECRET)~" .env.production
 
 # Run the next build process and generate the artifacts
 RUN npm run build 
