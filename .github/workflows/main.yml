@@ -28,5 +28,7 @@ jobs:
             context: .
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/github-secrets:latest
+            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/github-secrets:latest^
             secrets:  "NEXT_PUBLIC_MY_SECRET=${{ secrets.NEXT_PUBLIC_MY_SECRET }}"
+            
+            
