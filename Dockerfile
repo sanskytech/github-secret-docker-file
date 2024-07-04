@@ -14,7 +14,7 @@ RUN npm install -g npm@latest
 
 RUN npm ci 
 
-# Copy all other project files to working  directory
+# Copy all other project files to working directory
 COPY . .
 
 RUN  --mount=type=secret,id=NEXT_PUBLIC_MY_SECRET   \
